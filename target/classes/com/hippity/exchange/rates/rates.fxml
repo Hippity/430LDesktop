@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import com.sun.javafx.scene.control.IntegerField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane fx:controller="com.hippity.exchange.rates.Rates"
+          stylesheets="@rates.css"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center"
+          hgap="10"
+          prefWidth="600"
+          prefHeight="600"
+          vgap="10">
+
+    <Label text="LBP Exchange Rate"
+           styleClass="header"
+           textAlignment="CENTER"
+           GridPane.columnSpan="3"
+           GridPane.halignment="CENTER"/>
+
+    <Label text="Buy USD Rate"
+           GridPane.columnIndex="0"
+           styleClass="value"
+           GridPane.rowIndex="1"/>
+
+    <Label fx:id="buyUsdRateLabel"
+           text="Buy Rate"
+           GridPane.columnIndex="0"
+           styleClass="value-label"
+           GridPane.rowIndex="2"/>
+
+    <Label text="Sell USD Rate"
+           GridPane.columnIndex="2"
+           styleClass="value"
+           GridPane.rowIndex="1"/>
+
+    <Label fx:id="sellUsdRateLabel"
+           text="Sell Rate"
+           GridPane.columnIndex="2"
+           styleClass="value-label"
+           GridPane.rowIndex="2"/>
+
+    <Separator orientation="HORIZONTAL"
+               GridPane.RowIndex="3"
+               GridPane.columnIndex="0"
+               GridPane.columnSpan="3"/>
+
+    <Label text="Add Transaction"
+           styleClass="header"
+           GridPane.rowIndex="4"
+           textAlignment="CENTER"
+           GridPane.columnSpan="3"
+           GridPane.halignment="CENTER"/>
+
+    <Label text="Enter USD Amount:"
+           styleClass="input-label"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="5"
+    />
+    <TextField fx:id ="usdTextField"
+               styleClass="input"
+               GridPane.columnIndex="2"
+               GridPane.rowIndex="6"
+    />
+
+    <Label text="Enter LBP Amount:"
+           styleClass="input-label"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="5"
+    />
+
+    <TextField fx:id="lbpTextField"
+               styleClass="input"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="6"
+    />
+
+    <RadioButton text="Buy USD"
+                 selected="true"
+                 GridPane.rowIndex="6"
+                 GridPane.columnIndex="1"
+                 GridPane.halignment="CENTER"
+                 styleClass="radio"
+    >
+        <toggleGroup>
+            <ToggleGroup fx:id="transactionType"/>
+        </toggleGroup>
+    </RadioButton>
+
+    <RadioButton
+            text="Sell USD"
+            styleClass="radio"
+            GridPane.rowIndex="7"
+            GridPane.columnIndex="1"
+            GridPane.halignment="CENTER"
+            toggleGroup="$transactionType"/>
+
+    <Button text="Add Transaction"
+            onAction="#addTransaction"
+            GridPane.rowIndex="8"
+            GridPane.columnSpan="3"
+            GridPane.halignment="CENTER"
+            styleClass="transactionButton"
+    />
+
+    <Separator orientation="HORIZONTAL"
+               GridPane.RowIndex="9"
+               GridPane.columnIndex="0"
+               GridPane.columnSpan="3"/>
+
+    <Label text="Rate Calculator"
+           styleClass="header"
+           textAlignment="CENTER"
+           GridPane.columnSpan="3"
+           GridPane.rowIndex="10"
+           GridPane.halignment="CENTER"/>
+
+    <Label text="Enter USD Amount:"
+           styleClass="input-label"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="11"
+    />
+
+    <TextField fx:id ="usdInput"
+               styleClass="input"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="12"
+    />
+
+    <Button fx:id="calcDir"
+            styleClass="dirButton"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="12"
+            GridPane.halignment="CENTER"
+            onAction="#changeDir"
+    >
+        <graphic>
+            <ImageView>
+                    <Image url="@direction.png"/>
+            </ImageView>
+        </graphic>
+
+    </Button>
+
+    <Label text="Enter LBP Amount:"
+           styleClass="input-label"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="11"
+    />
+    <TextField fx:id="lbpInput"
+               styleClass="input"
+               disable="true"
+               GridPane.columnIndex="2"
+               GridPane.rowIndex="12"
+    />
+
+    <RadioButton text="Buy USD"
+                 selected="true"
+                 GridPane.rowIndex="13"
+                 GridPane.columnIndex="1"
+                 styleClass="radio"
+    >
+        <toggleGroup>
+            <ToggleGroup fx:id="calculateType"/>
+        </toggleGroup>
+    </RadioButton>
+
+    <RadioButton
+            text="Sell USD"
+            styleClass="radio"
+            GridPane.rowIndex="14"
+            GridPane.columnIndex="1"
+            toggleGroup="$calculateType"/>
+
+    <Button text="Calculate"
+            onAction="#calculate"
+            GridPane.rowIndex="15"
+            GridPane.columnSpan="3"
+            GridPane.halignment="CENTER"
+            styleClass="transactionButton"
+    />
+
+
+</GridPane>

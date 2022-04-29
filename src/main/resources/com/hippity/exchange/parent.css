@@ -1,0 +1,17 @@
+.nav-container {
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10;
+    -fx-pref-width: 130px;
+}
+.nav-button {
+    -fx-max-width: 120px;
+    -fx-background-color: whitesmoke;
+    -fx-border-color: #336799;
+    -fx-border-width: 2;
+    -fx-font-family: "Arial Black";
+    -fx-border-radius: 5;
+}
+.nav-button:pressed{
+    -fx-border-color: black;
+}

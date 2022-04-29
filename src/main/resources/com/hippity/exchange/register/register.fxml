@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:controller="com.hippity.exchange.register.Register"
+          stylesheets="@register.css"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center"
+          hgap="10"
+          prefWidth="600"
+          prefHeight="475"
+          vgap="10">
+
+    <Label text="Register"
+           styleClass="header"
+           textAlignment="CENTER"
+           GridPane.columnSpan="1"
+           GridPane.rowIndex="0"
+           GridPane.halignment="CENTER"/>
+
+    <Label text="Username"
+           styleClass="input-label"
+           GridPane.columnSpan="1"
+           GridPane.rowIndex="1"
+           GridPane.halignment="CENTER"
+    />
+    <TextField fx:id="usernameTextField"
+               styleClass="input"
+               GridPane.columnSpan="1"
+               GridPane.rowIndex="2"
+               GridPane.halignment="CENTER"
+
+    />
+    <Label text="Password"
+           styleClass="input-label"
+           GridPane.columnSpan="1"
+           GridPane.rowIndex="3"
+           GridPane.halignment="CENTER"
+    />
+    <PasswordField fx:id="passwordTextField"
+                   styleClass="input"
+                   GridPane.columnSpan="1"
+                   GridPane.rowIndex="4"
+                   GridPane.halignment="CENTER"
+    />
+    <Button text="Create Account"
+            styleClass="createAcc"
+            GridPane.columnSpan="1"
+            GridPane.rowIndex="5"
+            GridPane.halignment="CENTER"
+            onAction="#register"/>
+
+
+</GridPane>
+
+

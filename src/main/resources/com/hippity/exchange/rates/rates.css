@@ -1,0 +1,67 @@
+.root {
+    -fx-background-color: whitesmoke;
+}
+.header {
+    -fx-font-size: 24;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: #336799;
+}
+.value-label {
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-font-family: Arial;
+}
+.input-label{
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Black";
+
+}
+.value {
+    -fx-font-size: 20;
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Black";
+}
+
+.input{
+    -fx-border-color: #336799;
+    -fx-border-width: 2;
+    -fx-font-family: "Arial Black";
+    -fx-border-radius: 5;
+    -fx-background-color: transparent;
+}
+.input:focused{
+    -fx-font-family: "Arial Black";
+    -fx-background-color: whitesmoke;
+    -fx-border-color: black;
+}
+
+.radio{
+    -fx-font-family: "Arial Black";
+
+
+}
+.radio:selected .radio .dot{
+    -fx-background-color: #336799;
+    -fx-background-insets: 0;
+}
+.transactionButton{
+    -fx-background-color: whitesmoke;
+    -fx-border-color: #336799;
+    -fx-border-width: 2;
+    -fx-font-family: "Arial Black";
+    -fx-border-radius: 15;
+
+}
+.transactionButton:pressed{
+    -fx-border-color: black;
+}
+
+.dirButton{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.dirButton:pressed{
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+}
