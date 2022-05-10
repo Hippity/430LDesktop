@@ -1,10 +1,17 @@
 package com.hippity.exchange;
 
+import com.hippity.exchange.api.ExchangeService;
+import com.hippity.exchange.api.model.User;
+import com.hippity.exchange.login.Login;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +34,7 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public ExchangeRateChart rateChart = new ExchangeRateChart();
     public Stage stage2 = new Stage();
 
-    public static Boolean admin;
+    public static Boolean admin = false;
 
     private void updateNavigation() {
         boolean authenticated = Authentication.getInstance().getToken() !=
@@ -79,7 +86,32 @@ public class Parent implements Initializable, OnPageCompleteListener{
         rateChart.start(stage2);
         }
 
-    public void showAdminLog() { if (admin){swapContent(Section.ADMINLOG);}}
+    public void showAdminLog() {
+
+        ExchangeService.exchangeApi().getInfo("Bearer " +
+                Authentication.getInstance().getToken()).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+
+                if (response.body().getAdmin()){
+
+                    Parent.admin = true;
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable throwable) {
+            }
+        });
+
+        if (admin){
+            swapContent(Section.ADMINLOG);
+        }
+    }
+
     public void logoutSelected() {
         Authentication.getInstance().deleteToken();
         swapContent(Section.RATES);
