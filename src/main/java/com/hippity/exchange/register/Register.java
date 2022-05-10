@@ -36,8 +36,8 @@ public class Register implements PageCompleter {
                     }
                     @Override
                     public void onFailure(Call<Token> call, Throwable throwable) {
-                                                                                                                                                 }
-                                                                                                                                             });
+                    }
+                });
             }
             @Override
             public void onFailure(Call<User> call, Throwable throwable) {

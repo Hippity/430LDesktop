@@ -41,10 +41,10 @@
            GridPane.halignment="CENTER"
     />
     <PasswordField fx:id="passwordTextField"
-               styleClass="input"
-               GridPane.columnSpan="1"
-               GridPane.rowIndex="4"
-               GridPane.halignment="CENTER"
+                   styleClass="input"
+                   GridPane.columnSpan="1"
+                   GridPane.rowIndex="4"
+                   GridPane.halignment="CENTER"
     />
     <Button text="Login"
             styleClass="createAcc"

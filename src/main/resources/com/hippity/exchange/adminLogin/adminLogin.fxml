@@ -1,0 +1,82 @@
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:controller="com.hippity.exchange.adminLogin.adminLogin"
+          stylesheets="@adminLogin.css"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center"
+          hgap="10"
+          prefWidth="600"
+          prefHeight="475"
+          vgap="10">
+
+    <Label text="Add money to user's balance"
+           styleClass="header"
+           textAlignment="CENTER"
+           GridPane.columnSpan="2"
+           GridPane.rowIndex="0"
+           GridPane.halignment="CENTER"/>
+
+    <Label text="User's username:"
+           styleClass="input-label"
+           GridPane.columnSpan="1"
+           GridPane.rowIndex="1"
+           GridPane.columnIndex="0"
+           GridPane.halignment="CENTER"
+    />
+    <TextField fx:id="acctID"
+               styleClass="input"
+               GridPane.columnSpan="1"
+               GridPane.rowIndex="1"
+               GridPane.columnIndex="1"
+               GridPane.halignment="CENTER"
+
+    />
+    <Label text="LBP value: "
+           styleClass="input-label"
+           GridPane.columnSpan="1"
+           GridPane.rowIndex="2"
+           GridPane.columnIndex="0"
+           GridPane.halignment="CENTER"
+    />
+    <TextField fx:id="newLBPBalance"
+               styleClass="input"
+               GridPane.columnSpan="1"
+               GridPane.rowIndex="2"
+               GridPane.columnIndex="1"
+               GridPane.halignment="CENTER"
+
+    />
+
+    <Label text="USD value: "
+           styleClass="input-label"
+           GridPane.columnSpan="1"
+           GridPane.rowIndex="3"
+           GridPane.columnIndex="0"
+           GridPane.halignment="CENTER"
+    />
+    <TextField fx:id="newUSDBalance"
+               styleClass="input"
+               GridPane.columnSpan="1"
+               GridPane.rowIndex="3"
+               GridPane.columnIndex="1"
+               GridPane.halignment="CENTER"
+
+    />
+
+
+    <Button text="Update"
+            styleClass="createAcc"
+            GridPane.columnSpan="2"
+            GridPane.rowIndex="6"
+            onAction="#addMoney"
+            GridPane.halignment="CENTER"
+    />
+
+
+</GridPane>
+

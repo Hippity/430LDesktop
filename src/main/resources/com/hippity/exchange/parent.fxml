@@ -20,6 +20,10 @@
             <Button fx:id="loginButton" styleClass="nav-button" text="Login" onAction="#loginSelected"/>
             <Button fx:id="registerButton" styleClass="nav-button" text="Register" onAction="#registerSelected"/>
             <Button fx:id="logoutButton" styleClass="nav-button" text="Logout" onAction="#logoutSelected"/>
+            <Button fx:id="exchanges" styleClass="nav-button" text="Make Transactions" onAction="#makeExchanges"/>
+            <Button fx:id="stats" styleClass="nav-button" text="Statistics" onAction="#showStats"/>
+            <Button fx:id="changes" styleClass="nav-button" text="Rate Changes" onAction="#showChanges"/>
+            <Button fx:id="adminButton" styleClass="nav-button" text="Admin Side" onAction="#showAdminLog"/>
         </VBox>
     </left>
     <center>

@@ -1,0 +1,38 @@
+
+.header {
+    -fx-font-size: 24;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: #336799;
+}
+
+
+.input-label{
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Black";
+
+}
+
+.input{
+    -fx-border-color: #336799;
+    -fx-border-width: 2;
+    -fx-font-family: "Arial Black";
+    -fx-border-radius: 5;
+    -fx-background-color: transparent;
+}
+.input:focused{
+    -fx-font-family: "Arial Black";
+    -fx-background-color: whitesmoke;
+    -fx-border-color: black;
+}
+.createAcc{
+    -fx-background-color: whitesmoke;
+    -fx-border-color: #336799;
+    -fx-border-width: 2;
+    -fx-font-family: "Arial Black";
+    -fx-border-radius: 15;
+}
+.createAcc:pressed{
+    -fx-border-color: black;
+
+}

@@ -4,6 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +16,18 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public Button loginButton;
     public Button registerButton;
     public Button logoutButton;
+    public Button exchanges;
+    public Button cases;
+    public Button stats;
+    public Button adminButton;
+
+    public TransCountChart statsChart = new TransCountChart();
+    public Stage stage1 = new Stage();
+
+    public ExchangeRateChart rateChart = new ExchangeRateChart();
+    public Stage stage2 = new Stage();
+
+    public static Boolean admin;
 
     private void updateNavigation() {
         boolean authenticated = Authentication.getInstance().getToken() !=
@@ -26,6 +40,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
         registerButton.setVisible(!authenticated);
         logoutButton.setManaged(authenticated);
         logoutButton.setVisible(authenticated);
+        exchanges.setManaged(authenticated);
+        exchanges.setVisible(authenticated);
+        adminButton.setManaged(authenticated);
+        adminButton.setVisible(authenticated);
     }
 
 
@@ -33,9 +51,6 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public void onPageCompleted() {
         swapContent(Section.RATES);
     }
-
-
-
 
 
     @Override
@@ -54,9 +69,21 @@ public class Parent implements Initializable, OnPageCompleteListener{
     public void registerSelected() {
         swapContent(Section.REGISTER);
     }
+    public void makeExchanges() {swapContent(Section.EXCHANGES);}
+
+    public void showStats() {
+        statsChart.start(stage1);
+    }
+
+    public void showChanges() {
+        rateChart.start(stage2);
+        }
+
+    public void showAdminLog() { if (admin){swapContent(Section.ADMINLOG);}}
     public void logoutSelected() {
         Authentication.getInstance().deleteToken();
         swapContent(Section.RATES);
+        admin = false;
     }
     private void swapContent(Section section) {
         try {
@@ -72,11 +99,15 @@ public class Parent implements Initializable, OnPageCompleteListener{
         }
         updateNavigation();
     }
-    private enum Section {
+    public enum Section {
         RATES,
         TRANSACTIONS,
         LOGIN,
-        REGISTER;
+        REGISTER,
+        EXCHANGES,
+        STATS,
+        CHANGES,
+        ADMINLOG;
 
         public boolean doesComplete() {
             return switch (this) {
@@ -95,6 +126,14 @@ public class Parent implements Initializable, OnPageCompleteListener{
                         "/com/hippity/exchange/login/login.fxml";
                 case REGISTER ->
                         "/com/hippity/exchange/register/register.fxml";
+                case EXCHANGES ->
+                        "/com/hippity/exchange/exchanges/exchanges.fxml";
+                case STATS ->
+                        "/com/hippity/exchange/stats/stats.fxml";
+                case CHANGES ->
+                        "/com/hippity/exchange/changes/changes.fxml";
+                case ADMINLOG ->
+                        "/com/hippity/exchange/adminLogin/adminLogin.fxml";
                 default -> null;
             };
         }

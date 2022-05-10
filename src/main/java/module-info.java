@@ -14,4 +14,8 @@ module com.hippity.exchange {
     opens com.hippity.exchange.login to javafx.fxml;
     opens com.hippity.exchange.register to javafx.fxml;
     opens com.hippity.exchange.transactions to javafx.fxml;
+    opens com.hippity.exchange.changes to javafx.fxml;
+    opens com.hippity.exchange.exchanges to javafx.fxml;
+    opens com.hippity.exchange.adminLogin to javafx.fxml;
+
         }
